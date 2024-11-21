@@ -83,17 +83,6 @@ def name_trend_plot(df, mens_color, womens_color, name='John', width=800, height
             subplot_titles=("Total Count Over Time", "Sex Balance Ratio Over Time")
         )
 
-        # Add total count plot
-        fig.add_trace(
-            go.Scatter(x=yearly_counts['year'], y=yearly_counts['M'], mode='lines', name='Male', line=dict(color=color_map['M'])),
-            row=1, col=1
-        )
-
-        fig.add_trace(
-            go.Scatter(x=yearly_counts['year'], y=yearly_counts['F'], mode='lines', name='Female', line=dict(color=color_map['F'])),
-            row=1, col=1
-        )
-
         # Add male and female ratio plot
         fig.add_trace(
             go.Scatter(x=yearly_counts['year'], y=yearly_counts['Male_Ratio'], mode='lines', showlegend=False,  line=dict(color=color_map['M'])),
