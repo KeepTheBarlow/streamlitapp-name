@@ -67,13 +67,21 @@ with tab1:
     st.plotly_chart(fig_trend)
 
 with tab2:
-    fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
-    st.plotly_chart(fig_year)
+    col1, col2, col3 = st.columns(3)
 
-    fig_freq = name_frequencies_plot(data, mens_color, womens_color, year_input)
-    st.plotly_chart(fig_freq)
+    with col1:
+        st.plotly_chart(
+            top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input),
+            use_container_width=True
+        )
 
-    st.write('Unique Names Table')
-    output_table = unique_names_summary(data, year_input)
-    st.dataframe(output_table)
+    with col2:
+        st.plotly_chart(
+            name_frequencies_plot(data, mens_color, womens_color, year_input),
+            use_container_width=True
+        )
+
+    with col3:
+        st.write('Unique Names Table')
+        st.dataframe(unique_names_summary(data, year_input), use_container_width=True)
 
