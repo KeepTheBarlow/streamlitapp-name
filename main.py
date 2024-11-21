@@ -58,8 +58,8 @@ with tab1:
     fig = px.line(name_data, x='year', y='count', color='sex')
     st.plotly_chart(fig)
 
-    fig_freq = name_frequencies_plot(data, mens_color, womens_color, year_input)
-    st.plotly_chart(fig_freq)
+    fig_trend = name_trend_plot(data, mens_color, womens_color, input_name)
+    st.plotly_chart(fig_trend)
 
 with tab2:
     fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
