@@ -66,9 +66,6 @@ with tab1:
     fig_trend = name_trend_plot(data, mens_color, womens_color, input_name)
     st.plotly_chart(fig_trend)
 
-    fig_sex_balance = name_sex_balance_plot(data, mens_color, womens_color, input_name)
-    st.plotly_chart(fig_sex_balance)
-
 with tab2:
     fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
     st.plotly_chart(fig_year)
@@ -76,4 +73,8 @@ with tab2:
     st.write('Unique Names Table')
     output_table = unique_names_summary(data, year_input)
     st.dataframe(output_table)
+
+    st.write("One-Hit-Wonders In Year " + year_input)
+    ohw_table = one_hit_wonders(data, year_input)
+    st.dataframe(ohw_table)
 
