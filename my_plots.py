@@ -79,18 +79,18 @@ def name_trend_plot(df, mens_color, womens_color, name='John', width=800, height
 
         # Create subplots with shared x-axis
         fig = make_subplots(
-            rows=2, cols=1, shared_xaxes=True,
+            rows=1, cols=1, shared_xaxes=True,
             subplot_titles=("Total Count Over Time", "Sex Balance Ratio Over Time")
         )
 
         # Add male and female ratio plot
         fig.add_trace(
             go.Scatter(x=yearly_counts['year'], y=yearly_counts['Male_Ratio'], mode='lines', showlegend=False,  line=dict(color=color_map['M'])),
-            row=2, col=1
+            row=1, col=1
         )
         fig.add_trace(
             go.Scatter(x=yearly_counts['year'], y=yearly_counts['Female_Ratio'], mode='lines', showlegend=False, line=dict(color=color_map['F'])),
-            row=2, col=1
+            row=1, col=1
         )
 
         # Update layout
