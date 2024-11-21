@@ -39,7 +39,7 @@ ohw_data = ohw(data)
 
 
 
-st.title('My Even Cooler Name App')
+st.title('Treamlit App for Social Security Names')
 
 with st.sidebar:
     input_name = st.text_input('Enter a name:', 'Mary')
@@ -49,8 +49,6 @@ with st.sidebar:
 tab1, tab2 = st.tabs(['Names', 'Year'])
 
 with tab1:
-    input_name = st.text_input('Enter a name:')
-
     name_data = data[data['name']==input_name].copy()
     fig = px.line(name_data, x='year', y='count', color='sex')
     st.plotly_chart(fig)
