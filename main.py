@@ -70,11 +70,10 @@ with tab2:
     fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
     st.plotly_chart(fig_year)
 
+    fig_freq = name_frequencies_plot(data, mens_color, womens_color, year_input)
+    st.plotly_chart(fig_freq)
+
     st.write('Unique Names Table')
     output_table = unique_names_summary(data, year_input)
     st.dataframe(output_table)
-
-    st.write("One-Hit-Wonders In Year " + str(year_input))
-    ohw_table = one_hit_wonders(data, year_input)
-    st.dataframe(ohw_table)
 
