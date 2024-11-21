@@ -39,12 +39,17 @@ ohw_data = ohw(data)
 
 
 
-st.title('Treamlit App for Social Security Names')
+st.title('Streamlit App for Social Security Names')
 
 with st.sidebar:
     input_name = st.text_input('Enter a name:', 'Mary')
     year_input = st.slider("Year", min_value=1880, max_value=2023, value=2000)
     n_names = st.radio('Numer of names per sex:', [3,5,7])
+
+    mens_color = st.color_picker("Pick A Color for the Men's graph", "#00f900")
+    st.write("The current color for men is", mens_color)
+    womens_color = st.color_picker("Pick A Color for the Women's graph", "#00f900")
+    st.write("The current color for women is", womens_color)
 
 tab1, tab2 = st.tabs(['Names', 'Year'])
 
@@ -54,7 +59,7 @@ with tab1:
     st.plotly_chart(fig)
 
 with tab2:
-    fig_year = top_names_plot(data, n=n_names, year=year_input)
+    fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
     st.plotly_chart(fig_year)
 
     st.write('Unique Names Table')

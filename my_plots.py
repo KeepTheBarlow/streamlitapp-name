@@ -4,7 +4,7 @@ from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def top_names_plot(df, year=2000, n=10, width=800, height=600, variable='count'):
+def top_names_plot(df, mens_color, womens_color, year=2000, n=10, width=800, height=600, variable='count'):
     year_data = df[df['year'] == year].copy()
     year_data['overall_rank'] = year_data[variable].rank(method='min', ascending=False).astype(int)
 
@@ -16,10 +16,15 @@ def top_names_plot(df, year=2000, n=10, width=800, height=600, variable='count')
     top_female = female_names.sort_values(variable, ascending=False).head(n)
     top_female['sex_rank'] = range(1, n + 1)  # Rank within female names
 
+    custom_color_map = {
+        'M': mens_color,
+        'F': womens_color
+    }
+
     df = pd.concat([top_male, top_female])
     df.sort_values(variable, ascending=False, inplace=True)
 
-    fig = px.bar(df, x='name', y=variable, color='sex',
+    fig = px.bar(df, x='name', y=variable, color='sex', color_discrete_map=custom_color_map,
                 category_orders={"name": df['name'].tolist()},
                 hover_data={'sex_rank': True, 'overall_rank': True, 'sex': False, 'name': False})  # Add custom hover data
 
