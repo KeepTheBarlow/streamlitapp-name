@@ -60,8 +60,8 @@ with tab1:
     }
 
     name_data = data[data['name']==input_name].copy()
-    #fig = px.line(name_data, x='year', y='count', color='sex', color_discrete_map=custom_color_map)
-    #st.plotly_chart(fig)
+    fig = px.line(name_data, x='year', y='count', color='sex', color_discrete_map=custom_color_map,)
+    st.plotly_chart(fig)
 
     fig_trend = name_trend_plot(data, mens_color, womens_color, input_name)
     st.plotly_chart(fig_trend)
