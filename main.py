@@ -66,6 +66,9 @@ with tab1:
     fig_trend = name_trend_plot(data, mens_color, womens_color, input_name)
     st.plotly_chart(fig_trend)
 
+    fig_sex_balance = name_sex_balance_plot(data, mens_color, womens_color, input_name)
+    st.plotly_chart(fig_sex_balance)
+
 with tab2:
     fig_year = top_names_plot(data, mens_color, womens_color, n=n_names, year=year_input)
     st.plotly_chart(fig_year)

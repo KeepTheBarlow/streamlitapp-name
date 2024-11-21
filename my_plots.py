@@ -116,9 +116,9 @@ def name_trend_plot(df, mens_color, womens_color, name='John', width=800, height
 
         return fig
 
-def name_sex_balance_plot(df, name='John'):
+def name_sex_balance_plot(df, mens_color, womens_color, name='John'):
     name_data = df[df['name'] == name].copy()
-    color_map = {"M": "#636EFA", "F": "#EF553B"}
+    color_map = {"M": mens_color, "F": womens_color}
 
     if name_data.empty:
         print("Name not found in the dataset.")
