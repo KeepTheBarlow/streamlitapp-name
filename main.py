@@ -54,8 +54,13 @@ with st.sidebar:
 tab1, tab2 = st.tabs(['Names', 'Year'])
 
 with tab1:
+    custom_color_map = {
+        'M': mens_color,
+        'F': womens_color
+    }
+
     name_data = data[data['name']==input_name].copy()
-    fig = px.line(name_data, x='year', y='count', color='sex')
+    fig = px.line(name_data, x='year', y='count', color='sex', color_discrete_map=custom_color_map)
     st.plotly_chart(fig)
 
     fig_trend = name_trend_plot(data, mens_color, womens_color, input_name)
