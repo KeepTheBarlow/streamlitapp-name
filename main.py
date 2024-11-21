@@ -67,7 +67,7 @@ with tab1:
     st.plotly_chart(fig_trend)
 
 with tab2:
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
 
     with col1:
         st.plotly_chart(
@@ -75,13 +75,13 @@ with tab2:
             use_container_width=True
         )
 
-    with col2:
+    with col1:
         st.plotly_chart(
             name_frequencies_plot(data, mens_color, womens_color, year_input),
             use_container_width=True
         )
 
-    with col3:
+    with col2:
         st.write('Unique Names Table')
         st.dataframe(unique_names_summary(data, year_input), use_container_width=True)
 
